@@ -1,0 +1,125 @@
+
+.header-main-area{
+    background-color: #fff;
+    padding: 50px 0;
+    margin-top: 5px;
+}
+
+
+.header-main-flex{
+    display: flex;
+    justify-content: space-between;
+
+}
+.header-info{
+    width: 50%;
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+
+
+.header-hero-img{
+    width: 50%;
+    margin-left: 50px;
+    text-align: right;
+    padding: 20px 0;
+}
+.header-hero-img img{
+    width: 80%;
+}
+
+.header-info h6{
+    margin: 0;
+    text-transform: uppercase;
+    color: #19103f;
+    font-weight: 900;
+    font-size: 18px;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+
+.header-info h1{
+    margin: 0;
+    font-size: 80px;
+    text-transform: uppercase;
+    font-weight: 900;
+    background-color: #19103f;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+.header-info h2{
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 40px;
+    color: #19103f;
+}
+.header-info p{
+    font-size: 14px;
+    color: #19103f;
+    text-transform: uppercase;
+    line-height: 28px;
+}
+
+.btn{
+    border: none;
+    padding: 12px 50px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.style{
+    background-color: #19103f;
+    color: #fff;
+    font-weight: 900;
+}
+
+@media screen and (max-width: 992px ){
+    .header-main-flex{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .header-info{width: 100%; margin-top: 50px;}
+    .header-hero-img{
+        display: none;
+    }
+   
+}
+@media screen and (max-width: 768px ){
+
+}
+@media screen and (max-width: 576px ){
+    .header-info h6{
+        font-size: 12px;
+    }
+    .header-info h1{
+        font-size: 30px;
+    }
+    .header-info h2{
+        font-size: 20px;
+        margin-top: 15px;
+    }
+    .header-info p{
+        font-size: 10px;
+        line-height: normal;
+        
+    }
+}
+
+
+
+
+
+
+/* @media screen and (max-width: 992px ){
+    
+}
+@media screen and (max-width: 768px ){
+
+}
+@media screen and (max-width: 576px ){
+
+} */

@@ -1,0 +1,57 @@
+
+.form-container{
+    width: 60%;
+    margin: auto;
+}
+
+.contact-main-area{
+    padding: 80px 0;
+}
+
+.form-area{
+    margin: 40px 0;
+}
+
+.input-flex{
+    display: flex;
+}
+.input-flex input{
+    width: 100%;
+    padding: 10px 0;
+    text-transform: uppercase;
+    outline: none;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+textarea{
+    width: 100%;
+    outline: none;
+    margin-bottom: 15px;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+
+
+@media screen and (max-width: 992px ){
+    
+    
+}
+@media screen and (max-width: 768px ){
+
+    .form-container{
+        width: 80%;
+    }
+
+    .input-flex{
+        flex-direction: column;
+    }
+
+}
+@media screen and (max-width: 576px ){
+
+}

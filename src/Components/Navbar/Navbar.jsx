@@ -1,0 +1,57 @@
+import React, {useState } from 'react'
+import {AiOutlineAlignRight} from 'react-icons/ai';
+import {GiCrossedSabres} from 'react-icons/gi';
+import './Navbar.css';
+import { Link, NavLink } from 'react-router-dom';
+const Navbar = () => {
+    const [isbar, setIsbar] = useState(true);
+
+    const toggleBar = () => {
+        setIsbar(!isbar);
+    }
+
+    const activeDesign = {
+        color:'#363958',
+        borderBottom:'2px solid #363958'
+    }
+
+    return (
+        <>
+            <nav className="nav-main-area">
+                <div className="container">
+                <div className="nav-flex">
+                    <Link style={{textDecoration:'none'}} to='/'><h4>Fast. Cleaner</h4>
+                        <p>Cleaning Agency.</p>
+                    </Link>
+
+                    <div className="nav-items Nav-Items">
+                        <NavLink activeStyle={activeDesign} exact className='nav-link' to='/'>Home</NavLink>
+                        <NavLink activeStyle={activeDesign} className='nav-link' to='/services'>Services</NavLink>
+                        <NavLink activeStyle={activeDesign} className='nav-link' to='/about'>About us</NavLink>
+                        <NavLink activeStyle={activeDesign} className='nav-link' to='/contact'>Contact</NavLink>
+                        <NavLink activeStyle={activeDesign} className='nav-link' to='/admin'>Admin</NavLink>
+                        <NavLink style={{textDecoration:'none'}}  className='login-btn' to='/login'>Login</NavLink>
+                    </div>
+                    <div className="nav-bar-and-cross">
+                        {
+                            isbar ? <li><AiOutlineAlignRight onClick={toggleBar} className='nav-item-icon'/></li> : <li><GiCrossedSabres  onClick={toggleBar}className='nav-item-icon'/></li>
+                        }
+                        
+                    </div>
+                </div>
+
+                    {!isbar && <div className="nav-items mobile-nav">
+                        <NavLink activeStyle={activeDesign} exact className='nav-link' to='/'>Home</NavLink>
+                        <NavLink activeStyle={activeDesign} className='nav-link' to='/services'>Services</NavLink>
+                        <NavLink activeStyle={activeDesign} className='nav-link' to='/about'>About us</NavLink>
+                        <NavLink activeStyle={activeDesign} className='nav-link' to='/contact'>Contact</NavLink>
+                        <NavLink activeStyle={activeDesign} className='nav-link' to='/admin'>Admin</NavLink>
+                        <NavLink style={{textDecoration:'none'}} className='login-btn' to='/login'>Login</NavLink>
+                    </div>}
+                </div>
+            </nav>   
+        </>
+    )
+}
+
+export default Navbar
