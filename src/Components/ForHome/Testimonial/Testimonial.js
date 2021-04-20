@@ -40,9 +40,14 @@ const Testimonial = () => {
                             data.map(item => {
                                 return (
                                     <div className="testimonial-card">
-                                            <div className="info-testi">
+                                            <div className="flex-testi-info">
+                                                <div className="first-letter">
+                                                    <h5>{item.name.substr(0,1)}</h5>
+                                                </div>
+                                                <div className="info-testi">
                                                 <h2>{item.name}</h2>
                                                 <p>{item.company}</p>
+                                            </div>
                                             </div>
                                         <p>{item.review}</p>
                                     </div>

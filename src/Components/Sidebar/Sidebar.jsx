@@ -1,79 +1,163 @@
-import React, { useState } from 'react'
-import './Sidebar.css';
-import {AiOutlineUnorderedList, AiFillMessage, AiOutlineShoppingCart} from 'react-icons/ai';
-import { Link } from 'react-router-dom';
-import AddReview from './ForUser/AddReview/AddReview';
+import React, { useState } from "react";
+import "./Sidebar.css";
+import {AiOutlineUnorderedList,AiFillMessage,AiOutlineShoppingCart,AiOutlinePlus, AiOutlineUserAdd} from "react-icons/ai"; 
+import {SiGoogletagmanager} from 'react-icons/si';
+import {BrowserRouter as Router,Switch,Route,Link,NavLink,
+} from "react-router-dom";
+import AddReview from "./ForUser/AddReview/AddReview";
+import Home from "../../Pages/Home/Home";
+import AddService from "../../Pages/SiderBarComponents/AddService/AddService";
+import MakeAdmin from "../../Pages/SiderBarComponents/MakeAdmin/MakeAdmin";
+
+const routesWithCom = [
+  {
+    path: "/admin/book",
+    exact: true,
+    sidebar: () => <div>home!</div>,
+    main: () => <h2>Home</h2>,
+  },
+  {
+    path: "/admin/booking-list",
+    sidebar: () => <div>bubblegum!</div>,
+    main: () => <h2>Bubblegum</h2>,
+  },
+  {
+    path: "/admin/review",
+    sidebar: () => <AddReview />,
+    main: () => <h2>Shoelaces</h2>,
+  },
+
+  {
+    path: "/admin/orderlist",
+    sidebar: () => <h3> I am orderlist</h3>,
+    main: () => <h2>order</h2>,
+  },
+  {
+    path: "/admin/addservice",
+    sidebar: () => <AddService/>,
+    main: () => <h2>service</h2>,
+  },
+  {
+    path: "/admin/addadmin",
+    sidebar: () => <MakeAdmin/> ,
+    main: () => <h2>add admin</h2>,
+  },
+  {
+    path: "/admin/manage",
+    sidebar: () => <h3>I am manage</h3>,
+    main: () => <h2>manage</h2>,
+  }
+];
+
+const link = (
+  <Link className="book-link" to="/">
+    <button className="btn style">Go to home</button>
+  </Link>
+);
+
 const Sidebar = () => {
-    const [action, setAction] = useState({
-        book:true, bookingList:false,review:false
-    })
+  const [isAdmin, setIsAdmin] = useState(true);
 
-    // for manage
-    const bookHandler = () => {
-        setAction({
-            book:true,bookingList:false,review:false
-        })
-    }
+  return (
+    <>
+      <Router>
+        <section className="sidebar-main-area">
+          <div className="sidebar-left-main-part">
+            <h1>Fast. Cleaner</h1>
 
-    // for add
-    const bookingListHandler = () => {
-        setAction({
-            book:false,bookingList:true,review:false
-        })
-    }
+            {!isAdmin ? (
+              <div className="">
+                <NavLink
+                  style={{ textDecoration: "none" }}
+                  activeClassName={"bg"}
+                  to="/admin/book"
+                  className="action-flex"
+                >
+                  <AiOutlineShoppingCart className="action-icon" />
+                  <p>Book</p>
+                </NavLink>
+                <NavLink
+                  style={{ textDecoration: "none" }}
+                  activeClassName={"bg"}
+                  to="/admin/booking-list"
+                  className="action-flex"
+                >
+                  <AiOutlineUnorderedList className="action-icon" />
+                  <p>Booking List</p>
+                </NavLink>
+                <NavLink
+                  style={{ textDecoration: "none" }}
+                  activeClassName={"bg"}
+                  to="/admin/review"
+                  className="action-flex"
+                >
+                  <AiFillMessage className="action-icon" />
+                  <p>Review</p>
+                </NavLink>
+              </div>
+            ) : (
+              <div className="">
+                <NavLink
+                  style={{ textDecoration: "none" }}
+                  activeClassName={"bg"}
+                  to="/admin/orderlist"
+                  className="action-flex"
+                >
+                  <AiOutlineUnorderedList className="action-icon" />
+                  <p>Order list</p>
+                </NavLink>
+                <NavLink
+                  style={{ textDecoration: "none" }}
+                  activeClassName={"bg"}
+                  to="/admin/addservice"
+                  className="action-flex"
+                >
+                  <AiOutlinePlus className="action-icon" />
+                  <p>Add Service</p>
+                </NavLink>
+                <NavLink
+                  style={{ textDecoration: "none" }}
+                  activeClassName={"bg"}
+                  to="/admin/addadmin"
+                  className="action-flex"
+                >
+                  <AiOutlineUserAdd className="action-icon" />
+                  <p>Make Admin</p>
+                </NavLink>
 
-    // for review
-    const reviewHandler = () => {
-        setAction({
-            book:false, bookingList:false , review:true
-        })
-    }
+                <NavLink
+                  style={{ textDecoration: "none" }}
+                  activeClassName={"bg"}
+                  to="/admin/manage"
+                  className="action-flex"
+                >
+                  <SiGoogletagmanager className="action-icon" />
+                  <p>Manage</p>
+                </NavLink>
+              </div>
+            )}
+          </div>
 
-    return (
-        <>
-            <section className="sidebar-main-area">
+          <div className="all-info-part">
+            <div className="appbar">{link}</div>
 
-                <div className="sidebar-left-main-part">
-                    <h1>Fast. Cleaner</h1>
+            <div className="info-main-part-here">
+              <Switch>
+                {routesWithCom.map((route, index) => (
+                  <Route
+                    key={index}
+                    path={route.path}
+                    exact={route.exact}
+                    children={<route.sidebar />}
+                  />
+                ))}
+              </Switch>
+            </div>
+          </div>
+        </section>
+      </Router>
+    </>
+  );
+};
 
-                    <div onClick = {bookHandler} className={action.book ? 'action-flex bg':'action-flex'}>
-                        <AiOutlineShoppingCart className='action-icon'/>
-                        <p>Book</p>
-                    </div>
-                    <div onClick={bookingListHandler} className={action.bookingList ? 'action-flex bg':'action-flex'}>
-                        <AiOutlineUnorderedList className='action-icon'/>
-                        <p>Booking List</p>
-                    </div>
-                    <div onClick={reviewHandler} className={action.review ? 'action-flex bg':'action-flex'}>
-                        <AiFillMessage className='action-icon'/>
-                        <p>Review</p>
-                    </div>
-                    
-                </div>
-
-                <div className="all-info-part">
-                    <div className="appbar">
-                        <h2> {action.book ? 'Book': action.bookingList? 'Booking list' :  'Review'}</h2>
-                        <Link className='book-link' to='/'><button className='btn style'>Go to home</button></Link>
-                    </div>
-                    
-                    <div className="info-main-part-here">
-                        {
-                            action.book ? (
-                                <h3>I am book</h3>
-                            ): action.bookingList ? (
-                                <h3>I am bookingList</h3>
-                            ):(
-                                <AddReview/>
-                            )
-                        }
-                    </div>
-                </div>
-            </section> 
-
-             
-        </>
-    )
-}
-
-export default Sidebar
+export default Sidebar;

@@ -1,8 +1,9 @@
-import React, {useState } from 'react'
+import React, {useContext, useState } from 'react'
 import {AiOutlineAlignRight} from 'react-icons/ai';
 import {GiCrossedSabres} from 'react-icons/gi';
 import './Navbar.css';
 import { Link, NavLink } from 'react-router-dom';
+import { UserContext } from '../../App';
 const Navbar = () => {
     const [isbar, setIsbar] = useState(true);
 
@@ -14,6 +15,14 @@ const Navbar = () => {
         color:'#363958',
         borderBottom:'2px solid #363958'
     }
+
+
+        // from context
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+  const signOut = () => {
+      setLoggedInUser({});
+  }
 
     return (
         <>
@@ -29,7 +38,14 @@ const Navbar = () => {
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/services'>Services</NavLink>
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/contact'>Contact</NavLink>
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/admin'>Admin</NavLink>
-                        <NavLink style={{textDecoration:'none'}}  className='login-btn' to='/login'>Login</NavLink>
+                        {loggedInUser.email ? (
+                            <button onClick={signOut} className="logout">
+                                Sign out
+                            </button>
+                        ) : (
+                            <NavLink style={{textDecoration:'none'}}  className='login-btn' to='/login'>Login</NavLink>
+                        )}
+                         {loggedInUser.name && <h5 style={{marginLeft:'5px'}}>{loggedInUser.name}</h5>}
                     </div>
                     <div className="nav-bar-and-cross">
                         {
@@ -44,7 +60,14 @@ const Navbar = () => {
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/services'>Services</NavLink>
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/contact'>Contact</NavLink>
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/admin'>Admin</NavLink>
-                        <NavLink style={{textDecoration:'none'}} className='login-btn' to='/login'>Login</NavLink>
+                        {loggedInUser.email ? (
+                            <button onClick={signOut} className="btn style">
+                                Sign out
+                            </button>
+                        ) : (
+                            <NavLink style={{textDecoration:'none'}}  className='login-btn' to='/login'>Login</NavLink>
+                        )}
+                         {loggedInUser.name && <h5 style={{marginLeft:'5px'}}>{loggedInUser.name}</h5>}
                     </div>}
                 </div>
             </nav>   

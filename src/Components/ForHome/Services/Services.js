@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { fakeServicesData } from './data';
 import './Services.css'; 
 import {MdFavorite} from 'react-icons/md';
 import Navbar from '../../Navbar/Navbar';
 const Services = ({isNav}) => {
-    const [data, setData] = useState(fakeServicesData);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5500/servicesInfo')
+        .then(res => res.json())
+        .then(json => setData(json))
+    })
     return (
         <>
         {

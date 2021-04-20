@@ -1,0 +1,68 @@
+.addservice-area{
+    width: 60%;
+    padding: 50px 0;
+}
+.service-form{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px;
+}
+.service-form input:first-child, .input{
+    border: none;
+    border-bottom: 1px solid lightgray !important;
+    padding: 10px 0;
+    width: 50%;
+    outline: none;
+}
+
+.first-flex{
+    display: flex;
+    align-items: center;
+}
+.img-service{
+    width: 50%;
+    margin-left: 20px;
+}
+
+.img-service p{
+        margin: 0;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+}
+.service-form textarea{
+    padding: 10px;
+    margin: 10px 0;
+    width: 90%;
+    border: 1px solid lightgray;
+}
+
+
+.gray{
+    background-color: lightgray;
+    cursor:none;
+}
+
+@media screen and (max-width:768px){
+    .addservice-area{
+        width:80%;
+        margin-right: 30px;
+    }
+    .service-form{
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width:576px){
+    .first-flex{
+        flex-direction: column;
+    }
+    .service-form input:first-child{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .img-service{
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
