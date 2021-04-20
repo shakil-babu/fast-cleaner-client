@@ -24,7 +24,7 @@ const Contact = ({isNav}) => {
                             <input type="email" placeholder='Email Address' name='email'/>
                             <input type="number" placeholder='Phone Number'name='phone'/>
                         </div>
-                        <textarea name="message" cols="30" rows="5" placeholder='message' ></textarea>
+                        <textarea className='text-area' name="message" cols="30" rows="5" placeholder='message' ></textarea>
 
                         <button className='btn style' type='submit'>Send</button>
                     </form>

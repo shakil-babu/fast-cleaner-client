@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import { fakeServicesData } from './data';
-import './Services.css';
-const Services = () => {
+import './Services.css'; 
+import {MdFavorite} from 'react-icons/md';
+import Navbar from '../../Navbar/Navbar';
+const Services = ({isNav}) => {
     const [data, setData] = useState(fakeServicesData);
     return (
         <>
+        {
+            isNav && <Navbar/>
+        }
             <section className="services-area">
                 <div className="container">
                     <div className="services-info">
@@ -14,15 +19,21 @@ const Services = () => {
                         <div className="line"></div>
                     </div>
 
+
                     <div className="services-card-grid">
                         {
                             data.map((item) => {
                                 return (
                                     <div className="service-card">
                                         <img src={item.img} alt="img"/>
-                                        <h4>{item.title}</h4>
+                                        <div className="service-all-info">
+                                        <div className="icon-flex">
+                                            <MdFavorite className='icon'/>
+                                            <h4>{item.title}</h4>
+                                        </div>
                                         <h3>${item.price}</h3>
                                         <p>{item.desc}</p>
+                                        </div>
                                     </div>
                                 )
                             })

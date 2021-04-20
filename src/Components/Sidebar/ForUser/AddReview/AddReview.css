@@ -1,0 +1,44 @@
+
+.review-form-area{
+    width: 60%;
+    margin-top: 30px;
+
+}
+.review-form-area input, .review-form-area textarea{
+    border: none ;
+    background-color: lightgray;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    outline:none;
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.review-form-area input:focus, .review-form-area textarea:focus{
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+
+.flex-review-icon{
+    display: flex;
+    align-items: center;
+}
+.flex-review-icon .icon{
+    font-size: 25px;
+    margin-top: 4px;
+    margin-right: 5px;
+    color: green;
+}
+.flex-review-icon p{
+    font-size: 17px;
+    color:green;
+}
+
+
+@media screen and (max-width: 768px ){
+    .review-form-area{
+        width: 100%;
+    }
+}

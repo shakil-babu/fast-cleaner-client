@@ -27,7 +27,6 @@ const Navbar = () => {
                     <div className="nav-items Nav-Items">
                         <NavLink activeStyle={activeDesign} exact className='nav-link' to='/'>Home</NavLink>
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/services'>Services</NavLink>
-                        <NavLink activeStyle={activeDesign} className='nav-link' to='/about'>About us</NavLink>
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/contact'>Contact</NavLink>
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/admin'>Admin</NavLink>
                         <NavLink style={{textDecoration:'none'}}  className='login-btn' to='/login'>Login</NavLink>
@@ -43,7 +42,6 @@ const Navbar = () => {
                     {!isbar && <div className="nav-items mobile-nav">
                         <NavLink activeStyle={activeDesign} exact className='nav-link' to='/'>Home</NavLink>
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/services'>Services</NavLink>
-                        <NavLink activeStyle={activeDesign} className='nav-link' to='/about'>About us</NavLink>
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/contact'>Contact</NavLink>
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/admin'>Admin</NavLink>
                         <NavLink style={{textDecoration:'none'}} className='login-btn' to='/login'>Login</NavLink>

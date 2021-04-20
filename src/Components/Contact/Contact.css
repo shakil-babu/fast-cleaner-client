@@ -1,6 +1,6 @@
 
 .form-container{
-    width: 60%;
+    width: 80%;
     margin: auto;
 }
 
@@ -27,7 +27,7 @@
     border-right: none;
 }
 
-textarea{
+.text-area{
     width: 100%;
     outline: none;
     margin-bottom: 15px;
