@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { fakeServicesData } from './data';
 import './Services.css'; 
 import {MdFavorite} from 'react-icons/md';
 import Navbar from '../../Navbar/Navbar';

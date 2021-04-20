@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Sidebar.css";
 import {AiOutlineUnorderedList,AiFillMessage,AiOutlineShoppingCart,AiOutlinePlus, AiOutlineUserAdd} from "react-icons/ai"; 
 import {SiGoogletagmanager} from 'react-icons/si';
@@ -8,6 +8,7 @@ import AddReview from "./ForUser/AddReview/AddReview";
 import Home from "../../Pages/Home/Home";
 import AddService from "../../Pages/SiderBarComponents/AddService/AddService";
 import MakeAdmin from "../../Pages/SiderBarComponents/MakeAdmin/MakeAdmin";
+import { UserContext } from "../../App";
 
 const routesWithCom = [
   {
@@ -56,7 +57,26 @@ const link = (
 );
 
 const Sidebar = () => {
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [admins, setAdmins] = useState([]);
+    // from context
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+  // getAdmin
+  useEffect(() => {
+    fetch('http://localhost:5500/isAdmin', {
+      method: 'POST',
+      headers: {"content-type": "application/json",},
+      body: JSON.stringify({email: loggedInUser.email}),
+    })
+    .then((res) => res.json())
+    .then(data => setIsAdmin(data));
+
+  }, [])
+
+
+
+
 
   return (
     <>

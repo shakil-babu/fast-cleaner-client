@@ -17,7 +17,7 @@ const Navbar = () => {
     }
 
 
-        // from context
+    // from context
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
   const signOut = () => {
@@ -39,7 +39,7 @@ const Navbar = () => {
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/contact'>Contact</NavLink>
                         <NavLink activeStyle={activeDesign} className='nav-link' to='/admin'>Admin</NavLink>
                         {loggedInUser.email ? (
-                            <button onClick={signOut} className="logout">
+                            <button onClick={signOut} className="btn style">
                                 Sign out
                             </button>
                         ) : (

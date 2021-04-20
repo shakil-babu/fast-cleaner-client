@@ -20,9 +20,9 @@ const App = () => {
         <Switch>
             <Route exact path='/' component={Home}/>
             <Route path='/login' component={Login}/>
-            <Route path='/admin'>
+            <PrivateRoute path='/admin'>
                 <Admin/>
-            </Route>
+            </PrivateRoute>
             <Route path='/contact'>
               <Contact isNav={true} />
             </Route>
