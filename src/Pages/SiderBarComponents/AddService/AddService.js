@@ -44,7 +44,7 @@ const submitHandler = (event) => {
     }
 
     // post data to database
-    fetch(`http://localhost:5500/addService`, {
+    fetch(`https://vast-badlands-41502.herokuapp.com/addService`, {
         method: 'POST',
         headers: {
             "content-type": "application/json",

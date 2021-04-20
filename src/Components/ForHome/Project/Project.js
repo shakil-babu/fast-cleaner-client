@@ -21,10 +21,10 @@ const Project = () => {
                             projectData.map((item) => {
                                 return (
                                     <div className="service-card">
-                                        <img src={item.img} alt="img"/>
+                                        <img  src={item.img} alt="img"/>
                                         <div className="service-all-info">
                                         <div className="img-flex-pr">
-                                        <img src={done} alt="img"/>
+                                        <img style={{height:'40px'}} src={done} alt="img"/>
                                             <h4>{item.title}</h4>
                                         </div>
                                         

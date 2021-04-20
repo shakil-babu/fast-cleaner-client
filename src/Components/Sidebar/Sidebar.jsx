@@ -5,7 +5,6 @@ import {SiGoogletagmanager} from 'react-icons/si';
 import {BrowserRouter as Router,Switch,Route,Link,NavLink,
 } from "react-router-dom";
 import AddReview from "./ForUser/AddReview/AddReview";
-import Home from "../../Pages/Home/Home";
 import AddService from "../../Pages/SiderBarComponents/AddService/AddService";
 import MakeAdmin from "../../Pages/SiderBarComponents/MakeAdmin/MakeAdmin";
 import { UserContext } from "../../App";
@@ -14,7 +13,7 @@ const routesWithCom = [
   {
     path: "/admin/book",
     exact: true,
-    sidebar: () => <div>home!</div>,
+    sidebar: () => <h3>book</h3>,
     main: () => <h2>Home</h2>,
   },
   {
@@ -64,7 +63,7 @@ const Sidebar = () => {
 
   // getAdmin
   useEffect(() => {
-    fetch('http://localhost:5500/isAdmin', {
+    fetch('https://vast-badlands-41502.herokuapp.com/isAdmin', {
       method: 'POST',
       headers: {"content-type": "application/json",},
       body: JSON.stringify({email: loggedInUser.email}),

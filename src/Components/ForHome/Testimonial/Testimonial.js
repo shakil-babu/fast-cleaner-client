@@ -14,7 +14,7 @@ const Testimonial = () => {
 
     const [data, setData] = useState([]);
     const fetchReviewData = () => {
-        fetch('http://localhost:5500/reviewInfo')
+        fetch('https://vast-badlands-41502.herokuapp.com/reviewInfo')
         .then(res => res.json())
         .then(json => setData(json))
     }

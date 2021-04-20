@@ -2,13 +2,19 @@ import React, { useEffect, useState } from 'react'
 import './Services.css'; 
 import {MdFavorite} from 'react-icons/md';
 import Navbar from '../../Navbar/Navbar';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { ServicesContext } from '../../../App';
 const Services = ({isNav}) => {
     const [data, setData] = useState([]);
-
+    const [servicesInfo, setServicesInfo] = useContext(ServicesContext);
     useEffect(() => {
-        fetch('http://localhost:5500/servicesInfo')
+        fetch('https://vast-badlands-41502.herokuapp.com/servicesInfo')
         .then(res => res.json())
-        .then(json => setData(json))
+        .then(json => {
+            setData(json)
+            setServicesInfo(json);
+        })
     })
     return (
         <>
@@ -29,7 +35,7 @@ const Services = ({isNav}) => {
                         {
                             data.map((item) => {
                                 return (
-                                    <div className="service-card">
+                                    <Link to={`/admin/order/${item._id}`} className="service-card">
                                         <img src={item.img} alt="img"/>
                                         <div className="service-all-info">
                                         <div className="icon-flex">
@@ -39,7 +45,7 @@ const Services = ({isNav}) => {
                                         <h3>${item.price}</h3>
                                         <p>{item.desc}</p>
                                         </div>
-                                    </div>
+                                    </Link>
                                 )
                             })
                         }

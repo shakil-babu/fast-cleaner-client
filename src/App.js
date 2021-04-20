@@ -11,10 +11,13 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 // user context
 export const UserContext = createContext();
+export const ServicesContext = createContext();
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [servicesInfo, setServicesInfo] = useState([]);
   return (
     <>
+       <ServicesContext.Provider value={[servicesInfo, setServicesInfo]} >
        <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <BrowserRouter>
         <Switch>
@@ -33,6 +36,7 @@ const App = () => {
         <Footer/>
       </BrowserRouter>
       </UserContext.Provider>
+       </ServicesContext.Provider>
     </>
   )
 }
